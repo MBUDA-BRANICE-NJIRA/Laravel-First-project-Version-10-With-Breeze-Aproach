@@ -30,9 +30,10 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-// Route::get('/', [HomeController::class, 'index']);
-// Route::get('/Contact', [ContactController::class, 'index']);
-// Route::get('/Services', [ServicesController::class, 'index']);
-// Route::get('/Portfolio', [PortfolioController::class, 'index']);
-// Route::get('/Testimonial', [TestimonialController::class, 'index']);
-// Route::get('Events', [EventsController::class, 'index']);
+Route::get('/', [HomeController::class, 'index']);//For Home
+Route::get('/About', [AboutController::class, 'index']);//About
+Route::get('/Contact', [ContactController::class, 'index']);//ContactUs
+Route::get('/Services', [ServicesController::class, 'index']);//Services
+Route::get('/Portfolio', [PortfolioController::class, 'index']);//Portffolio
+Route::get('/Testimonial', [TestimonialController::class, 'index']);//Testimonial
+Route::get('Events', [EventsController::class, 'index']);//Events
