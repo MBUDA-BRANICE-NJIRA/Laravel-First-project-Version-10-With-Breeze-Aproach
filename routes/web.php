@@ -29,3 +29,10 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+// Route::get('/', [HomeController::class, 'index']);
+// Route::get('/Contact', [ContactController::class, 'index']);
+// Route::get('/Services', [ServicesController::class, 'index']);
+// Route::get('/Portfolio', [PortfolioController::class, 'index']);
+// Route::get('/Testimonial', [TestimonialController::class, 'index']);
+// Route::get('Events', [EventsController::class, 'index']);
