@@ -9,7 +9,7 @@ class EventController extends Controller
 {
     public function index()
     {
-        $events = EventModel::all(); // Fetch all events from the database
-        return view('events', compact('events'));
+        $events = \App\Models\EventsModel::all(); // Fetch all events
+        return view('Events', compact('events'));
     }
 }
