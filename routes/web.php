@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\EventController;//Import EventController
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +14,45 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+//Home Controller
 Route::get('/', function () {
-    return view('welcome');
+    return view('Home');
 });
+// Route::get('/', [HomeController::class, 'index']);
+
+//About Controller
+Route::get('/About', function () {
+    return view('About');
+});
+// Route::get('/About', [AboutController::class, 'index']);//About
+
+//Contact Controller
+Route::get('/Contact', function () {
+    return view('Contact');
+});
+// Route::get('/Contact', [ContactController::class, 'index']);//ContactUs
+
+//Services Controller
+Route::get('/Services', function () {
+    return view('Services');
+});
+// Route::get('/Services', [ServicesController::class, 'index']);//Services
+
+//Portfolio Controller
+Route::get('/Portfolio', function () {
+    return view('Portfolio');
+});
+// Route::get('/Portfolio', [PortfolioController::class, 'index']);//Portffolio
+
+//Testimonial Controller
+Route::get('/Testimonial', function () {
+    return view('Testimonial');
+});
+// Route::get('/Testimonial', [TestimonialController::class, 'index']);//Testimonial
+
+//Events Controller
+Route::get('/Events', [EventController::class, 'index']);//Events
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -30,10 +66,4 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/', [HomeController::class, 'index']);//For Home
-Route::get('/About', [AboutController::class, 'index']);//About
-Route::get('/Contact', [ContactController::class, 'index']);//ContactUs
-Route::get('/Services', [ServicesController::class, 'index']);//Services
-Route::get('/Portfolio', [PortfolioController::class, 'index']);//Portffolio
-Route::get('/Testimonial', [TestimonialController::class, 'index']);//Testimonial
-Route::get('Events', [EventsController::class, 'index']);//Events
+
