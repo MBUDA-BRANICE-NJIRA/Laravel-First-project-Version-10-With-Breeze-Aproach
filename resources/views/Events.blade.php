@@ -300,7 +300,22 @@
         <div class="events-header">
             <h1>Events</h1>
             <p>Discover upcoming events and activities. Stay connected with what's happening.</p>
-        </div> 
+        </div>
+        @if($events->isEmpty())
+            <div class="empty-state">
+                <h3>No events found</h3>
+                <p>Check back later or create a new event.</p>
+            </div>
+        @else
+            <div class="events-grid" id="events-grid">
+                @foreach($events as $event)
+                    <div class="event-card">
+                        <h3 class="event-title">{{ $event->title }}</h3>
+                        <p class="event-description">{{ $event->description }}</p>
+                    </div>
+                @endforeach
+            </div>
+        @endif
     </div>
 
     <button class="add-event-btn" onclick="openModal()">+</button>
