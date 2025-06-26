@@ -120,34 +120,24 @@
                 <div class="activity-card">
                     <h3 class="card-title">Recent Events</h3>
                     <div class="activity-list">
-                        <div class="activity-item">
-                            <div class="activity-avatar">JD</div>
-                            <div class="activity-details">
-                                <p class="activity-text">John Doe logged in</p>
-                                <span class="activity-time">2 minutes ago</span>
+                        @forelse($events as $event)
+                            <div class="activity-item">
+                                <div class="activity-avatar">
+                                    {{ strtoupper(substr($event->title, 0, 2)) }}
+                                </div>
+                                <div class="activity-details">
+                                    <p class="activity-text">{{ $event->title }}</p>
+                                    <p class="activity-description">{{ $event->description }}</p>
+                                    <span class="activity-time">{{ $event->created_at->diffForHumans() }}</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="activity-item">
-                            <div class="activity-avatar">SM</div>
-                            <div class="activity-details">
-                                <p class="activity-text">Sarah Miller created a new post</p>
-                                <span class="activity-time">15 minutes ago</span>
+                        @empty
+                            <div class="activity-item">
+                                <div class="activity-details">
+                                    <p class="activity-text">No recent events.</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="activity-item">
-                            <div class="activity-avatar">RJ</div>
-                            <div class="activity-details">
-                                <p class="activity-text">Robert Johnson updated settings</p>
-                                <span class="activity-time">1 hour ago</span>
-                            </div>
-                        </div>
-                        <div class="activity-item">
-                            <div class="activity-avatar">AL</div>
-                            <div class="activity-details">
-                                <p class="activity-text">Alice Lee completed a task</p>
-                                <span class="activity-time">3 hours ago</span>
-                            </div>
-                        </div>
+                        @endforelse
                     </div>
                 </div>
             </div>
@@ -608,6 +598,14 @@
         .activity-time {
             font-size: 0.75rem;
             color: var(--gray-500);
+        }
+
+        /* Add this to your existing <style> section or adjust as needed */
+        .activity-description {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+            margin: 0 0 0.25rem 0;
+            line-height: 1.4;
         }
 
         /* Responsive Design */

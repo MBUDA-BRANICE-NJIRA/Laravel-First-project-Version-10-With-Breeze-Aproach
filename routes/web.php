@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EventController;//Import EventController
 use Illuminate\Support\Facades\Route;
+use App\Models\EventsModel;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,7 +56,8 @@ Route::get('/Events', [EventController::class, 'index']);//Events
 
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $events = EventsModel::latest()->take(5)->get(); // Get 5 most recent events
+    return view('dashboard', compact('events'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
