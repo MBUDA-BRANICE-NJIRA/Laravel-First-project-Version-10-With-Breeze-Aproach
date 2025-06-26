@@ -118,7 +118,7 @@
 
                 <!-- Recent Activity Panel -->
                 <div class="activity-card">
-                    <h3 class="card-title">Recent Activity</h3>
+                    <h3 class="card-title">Recent Events</h3>
                     <div class="activity-list">
                         <div class="activity-item">
                             <div class="activity-avatar">JD</div>
