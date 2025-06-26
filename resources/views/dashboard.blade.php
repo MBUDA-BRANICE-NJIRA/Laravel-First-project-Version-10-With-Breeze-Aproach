@@ -38,11 +38,12 @@
                 
                 <div class="stat-card success">
                     <div class="stat-icon">
-                        <i class="icon-revenue"></i>
+                        <i class="icon-stats">No</i>
                     </div>
                     <div class="stat-content">
-                        <h3 class="stat-number">$48,532</h3>
-                        <p class="stat-label">Revenue</p>
+                        <!-- Counting from the db -->
+                        <h3 class="stat-number">{{ $eventsCount }}</h3>
+                        <p class="stat-label">Number Of Events</p>
                         <span class="stat-change positive">+8%</span>
                     </div>
                 </div>

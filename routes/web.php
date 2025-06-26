@@ -56,8 +56,10 @@ Route::get('/Events', [EventController::class, 'index']);//Events
 
 
 Route::get('/dashboard', function () {
-    $events = EventsModel::latest()->take(5)->get(); // Get 5 most recent events
-    return view('dashboard', compact('events'));
+    $events = EventsModel::latest()->take(100)->get();//The maximum events viewed on the dashbaord is 100
+    // Fetch the latest 100 events from the database
+    $eventsCount = EventsModel::count(); // Get total number of events
+    return view('dashboard', compact('events', 'eventsCount'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
