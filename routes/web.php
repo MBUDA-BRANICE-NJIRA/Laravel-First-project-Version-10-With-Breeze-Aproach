@@ -52,8 +52,8 @@ Route::get('/Testimonial', function () {
 // Route::get('/Testimonial', [TestimonialController::class, 'index']);//Testimonial
 
 //Events Controller
-Route::get('/Events', [EventController::class, 'index']);//Events
-
+// Route::get('/Events', [EventController::class, 'index']);//Events
+Route::resource('events', EventController::class);
 
 Route::get('/dashboard', function () {
     $events = EventsModel::latest()->take(100)->get();//The maximum events viewed on the dashbaord is 100
