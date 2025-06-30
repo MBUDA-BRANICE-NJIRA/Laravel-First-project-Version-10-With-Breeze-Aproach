@@ -56,9 +56,8 @@ Route::get('/Testimonial', function () {
 Route::resource('events', EventController::class);
 
 Route::get('/dashboard', function () {
-    $events = EventsModel::latest()->take(100)->get();//The maximum events viewed on the dashbaord is 100
-    // Fetch the latest 100 events from the database
-    $eventsCount = EventsModel::count(); // Get total number of events
+    $events = EventsModel::orderBy('updated_at', 'desc')->take(100)->get();
+    $eventsCount = EventsModel::count();
     return view('dashboard', compact('events', 'eventsCount'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
