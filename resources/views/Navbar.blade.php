@@ -15,7 +15,7 @@
             <li><a href="/Portfolio" class="nav-item">Portfolio</a></li>
             <li><a href="/Testimonial" class="nav-item">Testimonial</a></li>
             <li><a href="/Contact" class="nav-item">Contact</a></li>
-            <li><a href="/Events" class="nav-item">Events</a></li>
+            <li><a href="/events" class="nav-item">Events</a></li>
             <li><a href="/login" class="nav-cta">Log In</a></li>
             <li><a href="/register" class="nav-cta">Register</a></li>
         </ul>

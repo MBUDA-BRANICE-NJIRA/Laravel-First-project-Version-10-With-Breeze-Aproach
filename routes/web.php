@@ -52,7 +52,7 @@ Route::get('/Testimonial', function () {
 // Route::get('/Testimonial', [TestimonialController::class, 'index']);//Testimonial
 
 //Events Controller
-// Route::get('/Events', [EventController::class, 'index']);//Events
+//  Route::get('/Events', [EventController::class, 'index']);//Events
 Route::resource('events', EventController::class);
 
 Route::get('/dashboard', function () {
