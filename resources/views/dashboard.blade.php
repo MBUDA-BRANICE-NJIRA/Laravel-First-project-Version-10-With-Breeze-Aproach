@@ -102,7 +102,7 @@
                             <i class="action-icon icon-add-user"></i>
                             <span>Add User</span>
                         </a>
-                        <a href="#" class="action-item">
+                        <a href="{{ route('events.create') }}" class="action-item">
                             <i class="action-icon icon-create-post"></i>
                             <span>Create Event</span>
                         </a>
