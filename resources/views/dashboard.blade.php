@@ -131,6 +131,14 @@
                                     <p class="activity-description">{{ $event->description }}</p>
                                     <span class="activity-time">{{ $event->created_at->diffForHumans() }}</span>
                                 </div>
+                                <div class="activity-actions">
+                                    <a href="{{ route('events.edit', $event->id) }}" class="btn-edit">Edit</a>
+                                    <form action="{{ route('events.destroy', $event->id) }}" method="POST" style="display:inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn-delete" onclick="return confirm('Delete this event?')">Delete</button>
+                                    </form>
+                                </div>
                             </div>
                         @empty
                             <div class="activity-item">
@@ -679,6 +687,41 @@
             background: var(--gray-700);
             color: var(--gray-200);
             border-color: var(--gray-600);
+        }
+
+        .activity-actions {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .btn-edit, .btn-delete {
+            padding: 0.3rem 0.8rem;
+            border-radius: 0.4rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .btn-edit {
+            background: var(--primary-color, #3b82f6);
+            color: #fff;
+        }
+
+        .btn-edit:hover {
+            background: var(--primary-dark, #1e40af);
+        }
+
+        .btn-delete {
+            background: var(--danger-color, #ef4444);
+            color: #fff;
+        }
+
+        .btn-delete:hover {
+            background: #b91c1c;
         }
     </style>
 </x-app-layout>
