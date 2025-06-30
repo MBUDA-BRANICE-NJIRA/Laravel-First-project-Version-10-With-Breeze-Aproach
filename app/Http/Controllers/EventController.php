@@ -10,7 +10,7 @@ class EventController extends Controller
     // READ: Get all events
     public function index()
     {
-        $events = EventsModel::all();
+        $events = EventsModel::orderBy('updated_at', 'desc')->get();
         return view('Events', compact('events'));
     }
 
